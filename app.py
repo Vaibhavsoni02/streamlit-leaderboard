@@ -71,7 +71,7 @@ if st.button("Generate Leaderboard"):
             
 
             
-    df = pd.DataFrame(rows)[["RANK","USER_ID", "NAME", "SCORE"]]
+    df = pd.DataFrame(rows)[["RANK","USER_ID", "NAME", "SCORE","CERTIFICATE"]]
     df["RANK"] = df["RANK"].astype(int) # convert the data type of the column to integer
     df.set_index("USER_ID", inplace=True)
 #     df["Google_Classroom_Status"] = df.apply(create_hyperlink, axis=1)
