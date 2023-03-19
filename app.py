@@ -11,7 +11,7 @@ from google.oauth2 import service_account
 from gsheetsdb import connect
 
 # set page config
-st.set_page_config(page_title="LearnApp", page_icon="favicon.png")
+st.set_page_config(page_title="Vaibhav Soni", page_icon="favicon.png")
 
 
 
@@ -25,11 +25,9 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown(
-    "<h3 style='text-align: center; color: black;'>LA Cohort Leaderboard</h3>",
+    "<h3 style='text-align: center; color: black;'>Google Sheets</h3>",
     unsafe_allow_html=True,
 )
-
-print(st.secrets["gcp_service_account"])
 
 # Create a connection object.
 credentials = service_account.Credentials.from_service_account_info(
@@ -49,16 +47,16 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-def create_hyperlink(row):
-    if row["Google_Classroom_Status"] == "Joined":
-        return "Joined"
-    else:
-        url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
-        return f'<a href="{url}" target="_blank">Not enrolled</a>'
+# def create_hyperlink(row):
+#     if row["Google_Classroom_Status"] == "Joined":
+#         return "Joined"
+#     else:
+#         url = "https://forms.gle/NaX7e7YPJk9XKaKh7"
+#         return f'<a href="{url}" target="_blank">Not enrolled</a>'
 
 st.write("----")
 
-cohort_name = st.selectbox("Select the cohort", ["tafs-01"])
+cohort_name = st.selectbox("Select the Sheets", ["tafs-01"])
 st.write("")
 
 if st.button("Generate Leaderboard"):
