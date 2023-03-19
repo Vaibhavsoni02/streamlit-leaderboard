@@ -74,14 +74,14 @@ if st.button("Generate Leaderboard"):
     df = pd.DataFrame(rows)[["RANK","USER_ID", "NAME", "SCORE","CERTIFICATE"]]
     df["RANK"] = df["RANK"].astype(int) # convert the data type of the column to integer
     df.set_index("USER_ID", inplace=True)
-    df["CERTIFICATE"] = df.apply(create_hyperlink, axis=1)
+#     df["CERTIFICATE"] = df.apply(create_hyperlink, axis=1)
 
     #st.dataframe(df, escape_html=False)
     st.write("")
     st.write("")
     st.subheader(f"Leaderboard for {cohort_name.upper()}")
    # st.dataframe(df, height=1000)
-df = df.to_html(escape=False)
-st.write(df, unsafe_allow_html=True)
+    #df = df.to_html(escape=False)
+    st.write(df, unsafe_allow_html=True)
     #st.dataframe(df, unsafe_allow_html=True)
  
